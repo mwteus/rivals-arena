@@ -57,7 +57,7 @@ const links = [
  ["index.html","⌂","Início","home"],["campeonatos.html","♜","Campeonatos","championships"],
  ["times.html","♟","Times","teams"],["jogadores.html","▥","Jogadores","players"],
  ["partidas.html","▷","Partidas","matches"],["comunidade.html","☷","Comunidade","community"],
- ["sobre.html","ⓘ","Sobre","about"]
+ ["jogo.html","✹","Last Fuse","game"],["sobre.html","ⓘ","Sobre","about"]
 ];
 
 function nav(){
@@ -228,7 +228,27 @@ function aboutPage(){
  content.innerHTML=head("CONHEÇA A PLATAFORMA","SOBRE A RIVALS ARENA","Um ponto de encontro para quem leva competição a sério.")+`<div class="hero hero-about"><div class="hero-copy"><div class="eyebrow">COMPITA · CONECTE-SE · CONQUISTE</div><h1>SUA JORNADA.<br><span>SUA ARENA.</span></h1><p>A Rivals Arena nasce para aproximar jogadores, equipes e comunidades em torno da paixão pelos esports.</p><a class="btn btn-primary" href="cadastro.html">Faça parte da arena ↗</a></div><img class="hero-logo" src="assets/logos/logo-hero.png" alt="Rivals Arena"></div><div class="about-grid"><article class="about-block"><div class="eyebrow">NOSSO OBJETIVO</div><h2>Mais do que jogar. Competir.</h2><p>Reunir em um só espaço pessoas que querem participar de campeonatos, acompanhar rankings, montar equipes e evoluir em seus jogos favoritos.</p></article><article class="about-block"><div class="eyebrow">NOSSA PROPOSTA</div><h2>Uma comunidade em movimento.</h2><p>Dar visibilidade a jogadores e times, organizar informações de partidas e incentivar uma experiência competitiva acessível e colaborativa.</p></article></div>`;
 }
 
-const renderers={home,championships:championshipsPage,"championship-detail":championshipDetail,teams:teamsPage,"team-detail":teamDetail,players:playersPage,matches:matchesPage,community:communityPage,login:()=>loginPage(false),signup:()=>loginPage(true),about:aboutPage};
+const LAST_FUSE_URL = 'https://maycon-isac.itch.io/last-furse-rival-arena';
+
+function gamePage(){
+ const content = $("#content");
+ const itch = (txt, cls='btn-primary') => `<a class="btn ${cls}" href="${LAST_FUSE_URL}" target="_blank" rel="noopener noreferrer">${txt}</a>`;
+ const passos = [
+   ["PASSO 01","A bomba é sorteada","Um jogador recebe aleatoriamente uma bomba com cronômetro de 8 segundos. O tempo começa a correr na hora."],
+   ["PASSO 02","Encoste para passar","Quem está com a bomba precisa encostar em outro participante para passá-la automaticamente. O cronômetro continua correndo, sem reiniciar."],
+   ["PASSO 03","Use o Dash","Todos têm os mesmos controles: andar, pular e o Dash, uma arrancada rápida sem dano, com recarga de 2 segundos. Serve para fugir, perseguir ou escapar de perigos."],
+   ["PASSO 04","O tempo zera, a bomba explode","Quem estiver com a bomba quando o tempo acabar explode e é eliminado. Em seguida, uma nova bomba é sorteada entre os jogadores vivos."],
+   ["PASSO 05","Eventos de arena","A cada rodada, um evento de arena começa para deixar o mapa mais caótico e a partida mais imprevisível."],
+   ["PASSO 06","Último sobrevivente vence","A partida continua até restar um único jogador em pé. Partidas rápidas, em arenas pequenas, feitas para jogar de novo."]
+ ];
+ content.innerHTML = head("PARTY GAME COMPETITIVO · 2D","LAST FUSE","Passe a bomba, escape no Dash e seja o último de pé.")
+ + `<div class="hero hero-fuse"><span class="hero-stamp">8s</span><div class="hero-copy"><div class="eyebrow">2 A 4 JOGADORES · HUMANOS OU BOTS</div><h1>PASSE A BOMBA.<br><span>SOBREVIVA.</span></h1><p>Uma bomba, oito segundos e uma arena pequena demais para todo mundo. Encoste em alguém antes que o tempo zere.</p><div class="hero-actions">${itch('Ver jogo no itch.io ↗')}<a class="btn btn-dark" href="#como-funciona">Como funciona</a></div></div></div>`
+ + `<div class="fuse-facts"><div class="panel"><strong>2–4</strong><span>jogadores, humanos ou bots</span></div><div class="panel"><strong>8s</strong><span>de cronômetro por bomba</span></div><div class="panel"><strong>2s</strong><span>de recarga do Dash</span></div><div class="panel"><strong>1</strong><span>único sobrevivente vence</span></div></div>`
+ + `<section class="section" id="como-funciona"><div class="panel-head"><h2><span class="accent-icon">✹</span>Como funciona</h2><span class="muted tiny">Uma partida, do começo ao fim</span></div><div class="about-grid">${passos.map(([k,t,d])=>`<article class="about-block"><div class="eyebrow">${k}</div><h2>${t}</h2><p>${d}</p></article>`).join("")}</div></section>`
+ + `<div class="detail-grid fuse-bottom"><section class="panel"><div class="panel-head"><h2>Sobre o protótipo</h2><span class="status purple">EM VALIDAÇÃO</span></div><p class="fuse-text">O objetivo desta versão é validar se a jogabilidade central é <b>divertida, fluida e rejogável</b>, sem se preocupar com os gráficos finais. Teste, jogue com amigos e conte o que achou.</p></section><aside class="panel"><h2 class="section-title">Pronto para jogar?</h2><p class="fuse-text">A página do jogo no itch.io tem tudo para você começar.</p>${itch('Acessar no itch.io ↗')}</aside></div>`;
+}
+
+const renderers={home,championships:championshipsPage,"championship-detail":championshipDetail,teams:teamsPage,"team-detail":teamDetail,players:playersPage,matches:matchesPage,community:communityPage,login:()=>loginPage(false),signup:()=>loginPage(true),about:aboutPage,game:gamePage};
 
 (async function init() {
   await syncBackendData();

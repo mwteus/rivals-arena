@@ -1283,3 +1283,67 @@ tr:last-child td {
   background: #f1f3f4;
   transform: translateY(-1px);
 }
+
+/* ===== Página do jogo: Last Fuse ===== */
+.hero-fuse {
+  min-height: 280px;
+}
+
+.fuse-facts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.fuse-facts .panel {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fuse-facts strong {
+  font: 900 44px/1 'Barlow Condensed';
+  color: var(--lime);
+}
+
+.fuse-facts span {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+#como-funciona {
+  margin-bottom: 22px;
+  scroll-margin-top: 20px;
+}
+
+#como-funciona .about-block h2 {
+  font-size: 22px;
+}
+
+.fuse-bottom {
+  align-items: start;
+}
+
+.fuse-text {
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0 0 16px;
+}
+
+.fuse-text b {
+  color: var(--text);
+}
+
+@media (max-width: 900px) {
+  .fuse-facts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .hero-fuse .hero-stamp {
+    display: none;
+  }
+}

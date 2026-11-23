@@ -8,7 +8,7 @@ Site em **HTML5, CSS3 e JavaScript puro**. Os dados vêm da API do backend (`/ap
 - Se o backend estiver desligado, o site cai para os dados de demonstração de `js/data.js` (não é o banco de verdade).
 
 ## Páginas
-`index.html` (início) · `campeonatos.html` / `campeonato.html` · `times.html` / `time.html` · `jogadores.html` · `partidas.html` · `comunidade.html` · `login.html` / `cadastro.html` · `sobre.html`
+`index.html` (início) · `campeonatos.html` / `campeonato.html` · `times.html` / `time.html` · `jogadores.html` · `partidas.html` · `comunidade.html` · `jogo.html` (Last Fuse) · `login.html` / `cadastro.html` · `sobre.html`
 
 ## Arquivos principais
 - `js/app.js`: renderização das páginas e chamadas à API
